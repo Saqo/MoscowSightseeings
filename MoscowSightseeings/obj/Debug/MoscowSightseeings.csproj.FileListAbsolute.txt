@@ -1,0 +1,5 @@
+C:\Users\Sparko\Documents\Visual Studio 2010\Projects\MoscowSightseeings\MoscowSightseeings\bin\MoscowSightseeings.dll
+C:\Users\Sparko\Documents\Visual Studio 2010\Projects\MoscowSightseeings\MoscowSightseeings\bin\MoscowSightseeings.pdb
+C:\Users\Sparko\Documents\Visual Studio 2010\Projects\MoscowSightseeings\MoscowSightseeings\obj\Debug\MoscowSightseeings.dll
+C:\Users\Sparko\Documents\Visual Studio 2010\Projects\MoscowSightseeings\MoscowSightseeings\obj\Debug\MoscowSightseeings.pdb
+C:\Users\Sparko\Documents\Visual Studio 2010\Projects\MoscowSightseeings\MoscowSightseeings\obj\Debug\MoscowSightseeings.csprojResolveAssemblyReference.cache

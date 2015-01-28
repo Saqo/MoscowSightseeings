@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PlacesListDBModelStoreContainer" CdmEntityContainer="PlacesListDBEntities5">
+    <EntitySetMapping Name="Places">
+      <EntityTypeMapping TypeName="PlacesListDBModel.Places">
+        <MappingFragment StoreEntitySet="Places">
+          <ScalarProperty Name="PlaceId" ColumnName="PlaceId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CordX" ColumnName="CordX" />
+          <ScalarProperty Name="CordY" ColumnName="CordY" />
+          <ScalarProperty Name="TitleIMG" ColumnName="TitleIMG" />
+          <ScalarProperty Name="PlaceIMG" ColumnName="PlaceIMG" />
+          <ScalarProperty Name="PageContent" ColumnName="PageContent" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sightseeings">
+      <EntityTypeMapping TypeName="PlacesListDBModel.Sightseeings">
+        <MappingFragment StoreEntitySet="Sightseeings">
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="TItle" ColumnName="TItle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

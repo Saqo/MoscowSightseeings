@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlacesListDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="PlacesListDBEntities5" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Places" EntityType="PlacesListDBModel.Places" />
+    <EntitySet Name="Sightseeings" EntityType="PlacesListDBModel.Sightseeings" />
+    <AssociationSet Name="FK_Places_Sightseeings" Association="PlacesListDBModel.FK_Places_Sightseeings">
+      <End Role="Sightseeings" EntitySet="Sightseeings" />
+      <End Role="Places" EntitySet="Places" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Places">
+    <Key>
+      <PropertyRef Name="PlaceId" />
+    </Key>
+    <Property Name="PlaceId" Type="Guid" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="CordX" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="CordY" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <Property Name="TitleIMG" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="PlaceIMG" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="PageContent" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="TypeID" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="Sightseeings" Relationship="PlacesListDBModel.FK_Places_Sightseeings" FromRole="Places" ToRole="Sightseeings" />
+  </EntityType>
+  <EntityType Name="Sightseeings">
+    <Key>
+      <PropertyRef Name="TypeID" />
+    </Key>
+    <Property Name="TypeID" Type="Guid" Nullable="false" />
+    <Property Name="TItle" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Places" Relationship="PlacesListDBModel.FK_Places_Sightseeings" FromRole="Sightseeings" ToRole="Places" />
+  </EntityType>
+  <Association Name="FK_Places_Sightseeings">
+    <End Role="Sightseeings" Type="PlacesListDBModel.Sightseeings" Multiplicity="1" />
+    <End Role="Places" Type="PlacesListDBModel.Places" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sightseeings">
+        <PropertyRef Name="TypeID" />
+      </Principal>
+      <Dependent Role="Places">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

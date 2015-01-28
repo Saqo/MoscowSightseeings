@@ -1,0 +1,8 @@
+﻿@model MoscowSightseeings.Models.Places
+@{
+    Layout = "/Views/Shared/_LayoutForPlaces.cshtml";
+    ViewBag.Title = "Place";
+}
+        <span class="PlaceIMG">@Html.Raw(Model.TitleIMG) /></span>
+        <span class="ContentIMG">@Html.Raw(Model.PlaceIMG)</span>
+        @Html.Raw(Model.PageContent)

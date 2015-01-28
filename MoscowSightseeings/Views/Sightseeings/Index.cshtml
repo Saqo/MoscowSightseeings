@@ -1,0 +1,60 @@
+﻿@model IQueryable<MoscowSightseeings.Models.Places>
+@{
+    ViewBag.Title = "Index";
+}
+<script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+<div id="StartPage">
+    <div class="MapPlace">
+        <img src="/Images/MapPlace.png" />
+        <div id="YandexMap">
+            <script type="text/javascript">
+                // Как только будет загружен API и готов DOM, выполняем инициализацию
+                ymaps.ready(init);
+
+                var myMap
+                function init() {
+                    // Создание экземпляра карты и его привязка к контейнеру с
+                    // заданным id ("map")
+                    myMap = new ymaps.Map('YandexMap', {
+                        // При инициализации карты, обязательно нужно указать
+                        // ее центр и коэффициент масштабирования
+                        center: [55.752794, 37.619353], //Москва
+                        zoom: 13
+                    });
+
+                    myMap.controls
+                    // Добавление кнопки изменения масштаба
+                         .add('zoomControl')
+                    // Линейка масштаба
+                        .add('mapTools');
+                }
+
+                function setMark(cordX, cordY, content) {
+                    var Mark = new ymaps.Placemark([cordX, cordY], { iconContent: content }, { preset: 'twirl#blueStretchyIcon' });
+
+                    myMap.setCenter([cordX, cordY], 15);
+
+                    myMap.geoObjects.add(Mark);
+                }
+            </script>
+        </div>
+    </div>
+    <div class="PlacesListPlace">
+        <img src="/Images/PlacesListPlace.png" />
+        <ul id="ListLinksToPages">
+            @foreach (MoscowSightseeings.Models.Places place in Model)
+            {
+                
+                <li class="linkToPage">@Html.ActionLink(place.Title, "Place", new { ID = place.PlaceId }, new { content = place.PageContent })
+                </li>
+            }
+        </ul>
+        <ul class="PlacesList">
+            @foreach (MoscowSightseeings.Models.Places place in Model)
+            {
+                <li><a class="ViewInMap" href="javascript:setMark(@place.CordX,@place.CordY,'@place.Title');">
+                    Показать на карте</a></li>
+            }
+        </ul>
+    </div>
+</div>

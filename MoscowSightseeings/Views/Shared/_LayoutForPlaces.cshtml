@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+</head>
+<body>
+    <img class="SiteTitle" src="/Images/SiteTitle.png" />
+    <a href="@Url.Action("Index")" class="LinkGoHome">
+        <img class='GoHome' src='/Images/GoHome.png' /></a>
+    <div id="MainPage">
+        <img id="MPTopBorder" src="/Images/TopBorder.png" />
+        <table id="ContentMockup">
+            <tr>
+                <td id="MPLeftBorder">
+                </td>
+                <td id="MPContent">
+                    @RenderBody()
+                </td>
+                <td id="MPRightBorder">
+                </td>
+        </table>
+        <img id="MPBottomBorder" src="/Images/BottomBorder.png" />
+    </div>
+</body>
+</html>
